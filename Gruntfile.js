@@ -60,7 +60,7 @@ module.exports = function (grunt) {
 				]
 			}
 		},
-		
+
 		lineending: {               // Task
 			dist: {                   // Target
 				options: {              // Target options

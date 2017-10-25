@@ -32,12 +32,15 @@ END USER NOTES:
 
  5) BIP38 most likely will not work on mobile devices due to hardware limitations.
 
-Notes for localizers:
+Notes for translators:
 ---------------------------------------
-If you want to contribute to the project by creating a localized (translated) version of bitaddress.org, or improve on an existing localization, the file you need is in the folder src/culture. There, files are named after the language they contain, es.js for Spanish. Either create a new file for the language you intend to add (e.g da.js for Danish) or edit an existing file if you wish to make improvements or corrections.
+Here are some brief instructions on how to help out with translations of the bitaddress.org page. If you want to improve or make corrections to an existing translation, just edit the existing language file in the folder src/culture and build the project using Grunt, which will be explained in a later section. If you're starting from scratch with a new language, create a corresponding .js file in the src/culture folder and name it after the language it will contain. Let's say you will translate into Danish, so you name the file da.js. You can leave the file empty for now.
+
+
+If you want to contribute to the project by creating a localized (translated) version of bitaddress.org, or improve on an existing localization, the file you need is in the folder src/culture. There, the files are named after the language they represent, es.js for Spanish, ru.js for Russian and so on.
+Either create a new file for the language you intend to add (e.g da.js for Danish) or edit an existing file if you wish to make improvements or corrections.
 
 Not the above:
-Here are instructions on how to add a new language. If you want to improve or make corrections to an existing localization, just edit the language file and build the project using Grunt, which will be explained later. So, starting with a new language, create a corresponding file in the src/culture folder and name it after the language it will contain, e.g da.js. You can leave the file empty for Now
 
 
 
@@ -50,12 +53,9 @@ Add a reference to your language file in the section below the comment "// cultu
 
 What Grunt does:
 
-
 Download and install Grunt, ([link] http://gruntjs.com)
 
-How to localize Bitaddress.org:
-
-Look at the files in src/culture and select one whose language you're not too unfamiliar with. Let's say German, French or Spanish, if you're european. Make a copy of the file and give it the same name as the language code of your target language, e.g da.js or no.js if you're localizing into Danish or Norwegian. This file will be referred to as the "language file" in the following.
+Look at the files in src/culture and select one whose language you're not too unfamiliar with. Let's say German, French or Spanish, if you're European. Make a copy of the file and give it the same name as the language code of your target language, e.g da.js or no.js if you're localizing into Danish or Norwegian. This file will be referred to as the "language file" in the following.
 
 Open the file src/bitaddress-ui.html in a text editor. The file is encoded in UTF-8 format so make sure to use an appropriate editor. Add an entry for your language in the <div id="culturemenu"> near the beginning of the file's <body>. Then go to the section <script type="text/javascript"> with a number of commented-out language file names. Add your to the end, e.g //no.js
 
