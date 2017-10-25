@@ -34,14 +34,14 @@ END USER NOTES:
 
 Notes for translators:
 ---------------------------------------
-Here are some brief instructions on how to help out with translations of the bitaddress.org page. If you want to improve or make corrections to an existing translation, just edit the existing language file in the folder src/culture and build the project using Grunt, which will be explained in a later section. If you're starting from scratch with a new language, create a corresponding .js file in the src/culture folder and name it after the language it will contain. Let's say you will translate into Danish, so you name the file da.js. You can leave the file empty for now.
+Here are some brief instructions on how to help out with a translation of the bitaddress.org page. If you want to improve or make corrections to an existing translation, just edit the existing language file in the folder src/culture and build the project using Grunt, which will be explained in a later section. There is, however, a chance that the existing language file is incomplete, so keep reading to find out how to find any missing strings that you may need to add.
 
+If you're starting from scratch with a new language, make a copy of the file template.js in the src/culture folder and name the copy after the language it will contain. Let's say you will translate into Danish, so you name the file da.js. It will eventually contain all the translated strings for your language, but you can leave the file as is for now.
+
+The complete set of strings that are used by the HTML page is listed in the file src/culture/localizables.json. It has this name because the process of transforming the user interface of an application from one language into another, is generally referred to as "localization". So, localizables.json contains the full set of strings that should be "localized". The reason it contains a JSON data structure is that this format can be read by many CAT tools (Computer Aided Translation). One such open source CAT tool which was used for the Swedish translation is called OmegaT and can be found
 
 If you want to contribute to the project by creating a localized (translated) version of bitaddress.org, or improve on an existing localization, the file you need is in the folder src/culture. There, the files are named after the language they represent, es.js for Spanish, ru.js for Russian and so on.
 Either create a new file for the language you intend to add (e.g da.js for Danish) or edit an existing file if you wish to make improvements or corrections.
-
-Not the above:
-
 
 
 Edit the following files:
