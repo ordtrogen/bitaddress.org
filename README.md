@@ -1,20 +1,20 @@
 # bitaddress.org
 JavaScript Client-Side Bitcoin Wallet Generator
 
-Now Bitcoin addresses and their corresponding private key can be conveniently 
+Now Bitcoin addresses and their corresponding private key can be conveniently
 generated in a web browser.
 
 The bitaddress.org project provides an all-in-one HTML document with embedded
 JavaScript/Css/Images. The JavaScript is readable not minified and contains no
-XMLHttpRequest's (no AJAX). The benefit of this technique is you can load the 
-JavaScript locally and trust that the JavaScript did not change after being 
-loaded. 
+XMLHttpRequest's (no AJAX). The benefit of this technique is you can load the
+JavaScript locally and trust that the JavaScript did not change after being
+loaded.
 
 Here is a link to the BitcoinTalk.org forum topic discussing this project:
 https://bitcointalk.org/index.php?topic=43496.0
 
 
-Please send DONATIONS for this project to Bitcoin Address: 
+Please send DONATIONS for this project to Bitcoin Address:
 1NiNja1bUmhSoTXozBRBEtR8LeF9TGbZBN
 
 
@@ -31,6 +31,49 @@ END USER NOTES:
     they might record the private key you generated.
 
  5) BIP38 most likely will not work on mobile devices due to hardware limitations.
+
+Notes for localizers:
+---------------------------------------
+If you want to contribute to the project by creating a localized (translated) version of bitaddress.org, or improve on an existing localization, the file you need is in the folder src/culture. There, files are named after the language they contain, es.js for Spanish. Either create a new file for the language you intend to add (e.g da.js for Danish) or edit an existing file if you wish to make improvements or corrections.
+
+Not the above:
+Here are instructions on how to add a new language. If you want to improve or make corrections to an existing localization, just edit the language file and build the project using Grunt, which will be explained later. So, starting with a new language, create a corresponding file in the src/culture folder and name it after the language it will contain, e.g da.js. You can leave the file empty for Now
+
+
+
+Edit the following files:
+Gruntfile.js:
+Add a reference to your language file in the section below the comment "// cultures".
+
+
+
+
+What Grunt does:
+
+
+Download and install Grunt, ([link] http://gruntjs.com)
+
+How to localize Bitaddress.org:
+
+Look at the files in src/culture and select one whose language you're not too unfamiliar with. Let's say German, French or Spanish, if you're european. Make a copy of the file and give it the same name as the language code of your target language, e.g da.js or no.js if you're localizing into Danish or Norwegian. This file will be referred to as the "language file" in the following.
+
+Open the file src/bitaddress-ui.html in a text editor. The file is encoded in UTF-8 format so make sure to use an appropriate editor. Add an entry for your language in the <div id="culturemenu"> near the beginning of the file's <body>. Then go to the section <script type="text/javascript"> with a number of commented-out language file names. Add your to the end, e.g //no.js
+
+Go to Gruntfile.js and add your language file to the data structure "tokens". Make sure you get the syntax right. E.g if you add your entry to the end of the structure, you need to add a comma after the previous entry, to separate it from yours.
+
+Run Grunt in the root directory where you checked out Bitaddress.org project.
+
+(Run grunt on Windows... Use a Linux machine and set up a dropbox folder which you share with your Windows machine. Check out the git repo there and use Windows for editing the files. Install grunt-cli on the Linux box and use Putty from Windows to log on and run Grunt remotely on the Linux box.
+
+If you want to see the English source of the strings your localizing, you can find them in bitaddress-ui.html where the id attribute of an html element will correspond to a string in the language file. E.g the text in <div id="bulka1" class="answer"> corresponds to the string "bulka1" in the array in your language file.
+You can find some of the strings in ninja.translator.js
+<span id="generatelabelmovemouse">
+
+
+
+
+
+
 
 
 Notice of Copyrights and Licenses:
