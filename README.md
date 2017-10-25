@@ -34,19 +34,22 @@ END USER NOTES:
 
 Notes to translators:
 ---------------------------------------
-Here are some brief instructions on how to help out with a translation of the bitaddress.org page. If you want to improve or make corrections to an existing translation, just edit the corresponding language file in the folder src/culture and build the project using Grunt, which will be explained in a later section. There is, however, a chance that the existing language file is incomplete, so keep reading to find out how to find any missing strings that you may need to add.
+Here are some brief instructions on how to help out with a translation of the bitaddress.org page. If you want to improve or make corrections to an existing translation, just edit the corresponding language file in the folder src/culture and build the project using Grunt, which will be explained in a later section. There is, however, a chance that the existing language file is incomplete, so keep reading to find out how to find any missing strings that you might need to add.
 
-If you're starting from scratch with a new language, make a copy of the file template.js in the src/culture folder and name the copy after the language it will contain. In these instructions, let's assume you'll translate into Danish, so you name the file da.js, since "da" is the language code for Danish. The file will eventually contain all the translated strings for your language, but for now, just open it and change the part that says "LANGUAGE" to "da".
+If you're starting from scratch with a new language, make a copy of the file template.js in the src/culture folder and name the copy after the language it will contain. In these instructions, let's assume you'll translate into Danish, so you name the file da.js, since "da" is the language code for Danish. The file will eventually contain all translated strings for your language, but for now, just open it and change the part that says "LANGUAGE" to "da".
 
 The complete set of strings that are used by the HTML page is contained in the file src/culture/localizables.json. It has this name because the process of transforming the user interface of an application from one language into another is generally referred to as "localization". So, localizables.json contains the full set of strings that should be "localized". If you're contributing to an existing translation, you may want to check if you need to copy (and translate) some strings from localizables.json that are not present in the existing language file. The reason it contains a JSON data structure is that this format can be read by many CAT (Computer Aided Translation) tools. One such open source CAT tool, which was used for the Swedish translation, is called OmegaT and can be found at http://omegat.org.
 
 Leave localizables.json intact for future contributors and make a copy of it, preferably outside of the folder structure, which would make sense anyway if you use a tool like OmegaT as help. Translate the strings in the file, i.e. the string to the right of the colon on each line. When you're done, copy the entire contents of your translated file and paste it over the comment in your file "da.js".
 
 If you're adding a new language, you'll need to edit the following files:
+
 ./Gruntfile.js :
+
 Add a reference to your language file in the data structure below the comment "// cultures". Make sure you get the syntax right, it's easy to end up with a comma too many or too few.
 
 ./src/bitaddress-ui.html :
+
 Add an entry for your language in the <div id="culturemenu"> element, corresponding to the existing ones.
 Add a commented line referencing your language file in a <script> section near the end, where you can see the other language files listed.
 
