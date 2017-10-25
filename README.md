@@ -32,49 +32,27 @@ END USER NOTES:
 
  5) BIP38 most likely will not work on mobile devices due to hardware limitations.
 
-Notes for translators:
+Notes to translators:
 ---------------------------------------
-Here are some brief instructions on how to help out with a translation of the bitaddress.org page. If you want to improve or make corrections to an existing translation, just edit the existing language file in the folder src/culture and build the project using Grunt, which will be explained in a later section. There is, however, a chance that the existing language file is incomplete, so keep reading to find out how to find any missing strings that you may need to add.
+Here are some brief instructions on how to help out with a translation of the bitaddress.org page. If you want to improve or make corrections to an existing translation, just edit the corresponding language file in the folder src/culture and build the project using Grunt, which will be explained in a later section. There is, however, a chance that the existing language file is incomplete, so keep reading to find out how to find any missing strings that you may need to add.
 
-If you're starting from scratch with a new language, make a copy of the file template.js in the src/culture folder and name the copy after the language it will contain. Let's say you will translate into Danish, so you name the file da.js. It will eventually contain all the translated strings for your language, but you can leave the file as is for now.
+If you're starting from scratch with a new language, make a copy of the file template.js in the src/culture folder and name the copy after the language it will contain. In these instructions, let's assume you'll translate into Danish, so you name the file da.js, since "da" is the language code for Danish. The file will eventually contain all the translated strings for your language, but for now, just open it and change the part that says "LANGUAGE" to "da".
 
-The complete set of strings that are used by the HTML page is listed in the file src/culture/localizables.json. It has this name because the process of transforming the user interface of an application from one language into another, is generally referred to as "localization". So, localizables.json contains the full set of strings that should be "localized". The reason it contains a JSON data structure is that this format can be read by many CAT tools (Computer Aided Translation). One such open source CAT tool which was used for the Swedish translation is called OmegaT and can be found
+The complete set of strings that are used by the HTML page is contained in the file src/culture/localizables.json. It has this name because the process of transforming the user interface of an application from one language into another is generally referred to as "localization". So, localizables.json contains the full set of strings that should be "localized". If you're contributing to an existing translation, you may want to check if you need to copy (and translate) some strings from localizables.json that are not present in the existing language file. The reason it contains a JSON data structure is that this format can be read by many CAT (Computer Aided Translation) tools. One such open source CAT tool, which was used for the Swedish translation, is called OmegaT and can be found at http://omegat.org.
 
-If you want to contribute to the project by creating a localized (translated) version of bitaddress.org, or improve on an existing localization, the file you need is in the folder src/culture. There, the files are named after the language they represent, es.js for Spanish, ru.js for Russian and so on.
-Either create a new file for the language you intend to add (e.g da.js for Danish) or edit an existing file if you wish to make improvements or corrections.
+Leave localizables.json intact for future contributors and make a copy of it, preferably outside of the folder structure, which would make sense anyway if you use a tool like OmegaT as help. Translate the strings in the file, i.e. the string to the right of the colon on each line. When you're done, copy the entire contents of your translated file and paste it over the comment in your file "da.js".
 
+If you're adding a new language, you'll need to edit the following files:
+./Gruntfile.js :
+Add a reference to your language file in the data structure below the comment "// cultures". Make sure you get the syntax right, it's easy to end up with a comma too many or too few.
 
-Edit the following files:
-Gruntfile.js:
-Add a reference to your language file in the section below the comment "// cultures".
+./src/bitaddress-ui.html :
+Add an entry for your language in the <div id="culturemenu"> element, corresponding to the existing ones.
+Add a commented line referencing your language file in a <script> section near the end, where you can see the other language files listed.
 
+The file ./bitaddress.org.html is not edited by hand but generated by a build process that uses ./src/bitaddress-ui.html as a template and includes the JavaScript files and produces ./bitaddress.org.html as output. The build process is done by a program called Grunt. Go to http://gruntjs.com and find the instructions for how to install and use it.
 
-
-
-What Grunt does:
-
-Download and install Grunt, ([link] http://gruntjs.com)
-
-Look at the files in src/culture and select one whose language you're not too unfamiliar with. Let's say German, French or Spanish, if you're European. Make a copy of the file and give it the same name as the language code of your target language, e.g da.js or no.js if you're localizing into Danish or Norwegian. This file will be referred to as the "language file" in the following.
-
-Open the file src/bitaddress-ui.html in a text editor. The file is encoded in UTF-8 format so make sure to use an appropriate editor. Add an entry for your language in the <div id="culturemenu"> near the beginning of the file's <body>. Then go to the section <script type="text/javascript"> with a number of commented-out language file names. Add your to the end, e.g //no.js
-
-Go to Gruntfile.js and add your language file to the data structure "tokens". Make sure you get the syntax right. E.g if you add your entry to the end of the structure, you need to add a comma after the previous entry, to separate it from yours.
-
-Run Grunt in the root directory where you checked out Bitaddress.org project.
-
-(Run grunt on Windows... Use a Linux machine and set up a dropbox folder which you share with your Windows machine. Check out the git repo there and use Windows for editing the files. Install grunt-cli on the Linux box and use Putty from Windows to log on and run Grunt remotely on the Linux box.
-
-If you want to see the English source of the strings your localizing, you can find them in bitaddress-ui.html where the id attribute of an html element will correspond to a string in the language file. E.g the text in <div id="bulka1" class="answer"> corresponds to the string "bulka1" in the array in your language file.
-You can find some of the strings in ninja.translator.js
-<span id="generatelabelmovemouse">
-
-
-
-
-
-
-
+If all goes well you'll have a bitaddress.org.html file you can open in a browser and test. When everything works as expected, don't forget to make a pull request to contribute back your improvements to the original project.
 
 Notice of Copyrights and Licenses:
 ---------------------------------------
